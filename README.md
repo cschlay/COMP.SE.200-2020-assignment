@@ -17,6 +17,14 @@ Individuals who remove or modify the license file will also carry the consequenc
 This repository only contain test code in `test/` directory.
 No modifications to original code should be made.
 
+Install the dependencies
+
+```
+npm install
+```
+
+then run
+
 ```
 npm test
 ```
