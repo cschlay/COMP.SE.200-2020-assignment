@@ -71,4 +71,37 @@ describe('at.js', () => {
       chai.expect(at(() => {}, 'a')).to.deep.equal([undefined])
     })
   })
+
+  // NOTE: The cases {} and [{}] were not tested
+  describe('path is not string', () => {
+    const obj = {
+      'car': {
+        'seats': 4
+      }
+    }
+    const paths = ['', () => {}, 'str', 1, 1.0, [''], [12]]
+    paths.forEach(path => {
+      it(`path "${path}" should return [undefined]`, () => {
+        chai.expect(at(obj, path)).to.deep.equal([undefined])
+      })
+    })
+  })
+
+  describe('paths does not exist', () => {
+    const obj = {
+      'car': {
+        'seats': 4
+      }
+    }
+    const paths = [
+      ['car.seats[0]', [undefined]],
+      ['car.owner', [undefined]],
+      [['wheel.age', 'seat.type'], [undefined, undefined]]
+    ]
+    paths.forEach(([path, expected]) => {
+      it(`path "${path}" should return "${expected}"`, () => {
+        chai.expect(at(obj, path)).to.deep.equal(expected)
+      })
+    })
+  })
 })
