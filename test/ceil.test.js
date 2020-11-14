@@ -33,7 +33,7 @@ describe('ceil.js', () => {
         ]
 
         cases.forEach(([input, precision]) => {
-            it(`${input} ${precision}`, () => {
+            it(`${input} with precision ${precision} should be NaN`, () => {
                 chai.expect(ceil(input, precision)).to.be.NaN
             })
         })
