@@ -26,4 +26,9 @@ describe('castArray.js', () => {
     it('should return empty array if no arguments provided', () => {
         chai.expect(castArray()).to.deep.equal([])
     })
+
+    it('multiple argument calls may have unexpected behavior', () => {
+        chai.expect(castArray([], [], [])).to.deep.equal([])
+        chai.expect(castArray('Kitten', 'wants', 'milk')).to.deep.equal(['Kitten'])
+    })
 })
