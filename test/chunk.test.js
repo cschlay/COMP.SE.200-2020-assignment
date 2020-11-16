@@ -37,4 +37,38 @@ describe('chunk.js', () => {
     it('array length is 0 results empty array', () => {
         chai.expect(chunk([]), 20).to.deep.equal([])
     })
+
+    it('array length is 1 results every array to have single item', () => {
+        chai.expect(chunk(['coffee', 'cocoa', 'chocolate'], 1)).to.deep.equal(
+            [['coffee'], ['cocoa'], ['chocolate']]
+        )
+    })
+
+    it('split size greater than the array, the last item contains the remaining', () => {
+        chai.expect(chunk(['coffee', 'cocoa', 'chocolate'], 4)).to.deep.equal(
+            [['coffee', 'cocoa', 'chocolate']]
+        )
+    })
+
+    it('split size is 0 results empty array', () => {
+        chai.expect(chunk(['coffee', 'cocoa', 'chocolate'], 0)).to.deep.equal([])
+    })
+
+    describe('split size is not a integer results the original in the array', () => {
+        const cases = [
+            null,
+            undefined,
+            'not int'
+        ]
+        cases.forEach(input => {
+            it(`input ${input} should result original array`, () => {
+                chai.expect(chunk(['coffee']), input).to.deep.equal([['coffee']])
+            })
+        })
+    })
+
+    // Differs from plan
+    it('negative size should return the original array', () => {
+        chai.expect(chunk(['coffee']), -1).to.deep.equal([['coffee']])
+    })
 })
