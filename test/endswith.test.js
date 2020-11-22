@@ -1,4 +1,4 @@
-import endswith from '../src/endswith.js'
+import endswith from '../src/endsWith.js'
 import chai from 'chai'
 
 describe('endswith.js', () => {
