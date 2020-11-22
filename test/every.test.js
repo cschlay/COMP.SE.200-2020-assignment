@@ -1,5 +1,5 @@
 import every from '../src/every.js'
-import chai, { AssertionError } from 'chai'
+import chai from 'chai'
 
 describe('every.js', () => {
     it('using simple function that results false', () => {
