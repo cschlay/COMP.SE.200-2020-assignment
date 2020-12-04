@@ -1,6 +1,5 @@
 import isLength from '../src/isLength.js'
 import chai from 'chai'
-import isTypedArray from '../src/isTypedArray.js'
 
 describe('isLength.js',()=>{
     var long_int = 9007199254740992

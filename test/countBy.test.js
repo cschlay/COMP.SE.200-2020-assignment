@@ -6,7 +6,7 @@ describe('countBy.js', () => {
         chai.expect(countBy(['in', 'out', 'in'], (item) => item === 'in')).to.deep.equal({'true': 2, 'false': 1})
     })
     
-    it('input should count values', () => {
+    it('input\'s values should be counted', () => {
         chai.expect(
             countBy({'car': 'in', 'bike': 'in', 'train': 'in'}, 
             (item) => item === 'in'

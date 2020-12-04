@@ -23,8 +23,6 @@ describe('eq.js', () => {
         chai.expect(eq(arr, arr)).to.be.true
     })
 
-    it 
-
     it('object compare properly', () => {
         chai.expect(eq({}, {})).to.be.false
         const obj = {}
